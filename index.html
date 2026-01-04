@@ -10,7 +10,7 @@
   <main class="container">
     <h1>RESERVA DE PLAZA – CAMPA MSA 2026</h1>
 
-    <!-- BLOQUE INFORMATIVO (tarjeta como el resto) -->
+    <!-- BLOQUE INFORMATIVO (tarjeta) -->
     <section class="card">
       <p><strong>IMPORTANTE:</strong> Esta es únicamente la reserva de plaza. La inscripción no será definitiva hasta que se realice el segundo pago y se entregue toda la documentación requerida.<br>
       Antes de rellenar este formulario, lee la CIRCULAR INFORMATIVA 2026.</p>
@@ -106,50 +106,55 @@
         </label>
       </section>
 
-      <!-- DATOS 2º HERMANO (tarjeta separada) -->
-      <section class="card" id="siblingCard" style="display:none;">
-        <h2>Datos del segundo hermano/a</h2>
+      <!-- ✅ CONTENEDOR QUE MUESTRA/OCULTA EL JS -->
+      <div id="siblingBlock" style="display:none;">
 
-        <label>Nombre* <input name="camper2_name"></label>
-        <label>Apellidos* <input name="camper2_surname"></label>
+        <!-- DATOS 2º HERMANO (tarjeta) -->
+        <section class="card">
+          <h2>Datos del segundo hermano/a</h2>
 
-        <label>Curso*
-          <select name="camper2_course">
-            <option value="">Selecciona…</option>
-            <option>4º Primaria</option>
-            <option>5º Primaria</option>
-            <option>6º Primaria</option>
-            <option>1º ESO</option>
-            <option>2º ESO</option>
-            <option>3º ESO</option>
-          </select>
-        </label>
-      </section>
+          <label>Nombre* <input name="camper2_name"></label>
+          <label>Apellidos* <input name="camper2_surname"></label>
 
-      <!-- INFO MÉDICA 2º HERMANO (tarjeta separada) -->
-      <section class="card" id="siblingMedicalCard" style="display:none;">
-        <h2>Información médica del segundo acampado</h2>
+          <label>Curso*
+            <select name="camper2_course">
+              <option value="">Selecciona…</option>
+              <option>4º Primaria</option>
+              <option>5º Primaria</option>
+              <option>6º Primaria</option>
+              <option>1º ESO</option>
+              <option>2º ESO</option>
+              <option>3º ESO</option>
+            </select>
+          </label>
+        </section>
 
-        <fieldset>
-          <legend>Alergias / intolerancias (segundo acampado)*</legend>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Cereales"> Cereales</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Frutos secos"> Frutos secos</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Gluten"> Gluten</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Histamina"> Histamina</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Huevo"> Huevo</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Lactosa"> Lactosa</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Legumbres"> Legumbres</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Marisco / Pescado"> Marisco / Pescado</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="Polen"> Polen</label>
-          <label class="inline"><input type="checkbox" name="allergies2" value="NINGUNA"> NINGUNA</label>
-        </fieldset>
+        <!-- INFO MÉDICA 2º HERMANO (tarjeta) -->
+        <section class="card">
+          <h2>Información médica del segundo acampado</h2>
 
-        <label>Otras enfermedades o información médica relevante (segundo acampado)*
-          <textarea name="medical2_notes"></textarea>
-        </label>
-      </section>
+          <fieldset>
+            <legend>Alergias / intolerancias (segundo acampado)*</legend>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Cereales"> Cereales</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Frutos secos"> Frutos secos</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Gluten"> Gluten</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Histamina"> Histamina</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Huevo"> Huevo</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Lactosa"> Lactosa</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Legumbres"> Legumbres</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Marisco / Pescado"> Marisco / Pescado</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="Polen"> Polen</label>
+            <label class="inline"><input type="checkbox" name="allergies2" value="NINGUNA"> NINGUNA</label>
+          </fieldset>
 
-      <!-- PROTECCIÓN DE DATOS (TEXTO ÍNTEGRO) -->
+          <label>Otras enfermedades o información médica relevante (segundo acampado)*
+            <textarea name="medical2_notes"></textarea>
+          </label>
+        </section>
+
+      </div>
+
+      <!-- PROTECCIÓN DE DATOS (texto íntegro) -->
       <section class="card">
         <h2>Información básica de Protección de Datos</h2>
 
@@ -200,7 +205,7 @@
         </fieldset>
       </section>
 
-      <!-- AVISOS IMPORTANTES (TEXTO ÍNTEGRO) -->
+      <!-- AVISOS IMPORTANTES (texto íntegro) -->
       <section class="card">
         <h2>AVISOS IMPORTANTES</h2>
 
