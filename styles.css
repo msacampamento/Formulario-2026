@@ -33,3 +33,10 @@ fieldset input[type="radio"]{
   margin-top:2px;
   flex-shrink:0;
 }
+
+.footer{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin:24px 0 8px;
+}
