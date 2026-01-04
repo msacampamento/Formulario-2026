@@ -10,7 +10,7 @@
   <main class="container">
     <h1>RESERVA DE PLAZA – CAMPA MSA 2026</h1>
 
-    <!-- BLOQUE INFORMATIVO -->
+    <!-- BLOQUE INFORMATIVO (tarjeta como el resto) -->
     <section class="card">
       <p><strong>IMPORTANTE:</strong> Esta es únicamente la reserva de plaza. La inscripción no será definitiva hasta que se realice el segundo pago y se entregue toda la documentación requerida.<br>
       Antes de rellenar este formulario, lee la CIRCULAR INFORMATIVA 2026.</p>
@@ -67,10 +67,9 @@
         </label>
       </section>
 
-      <!-- INFORMACIÓN MÉDICA -->
+      <!-- INFORMACIÓN MÉDICA (1º ACAMPADO) -->
       <section class="card">
         <h2>Información médica</h2>
-
         <fieldset>
           <legend>Alergias / intolerancias*</legend>
           <label class="inline"><input type="checkbox" name="allergies" value="Cereales"> Cereales</label>
@@ -90,7 +89,7 @@
         </label>
 
         <label>¿Nos dejamos algo? (opcional)
-          <textarea name="special_notes"></textarea>
+          <textarea name="special_notes" placeholder="Cuéntanos cualquier detalle que debamos saber (opcional)"></textarea>
         </label>
       </section>
 
@@ -105,63 +104,140 @@
             <option value="yes">Sí</option>
           </select>
         </label>
-
-        <div id="siblingBlock" style="display:none;">
-          <h3>Datos del segundo hermano/a</h3>
-
-          <label>Nombre* <input name="camper2_name"></label>
-          <label>Apellidos* <input name="camper2_surname"></label>
-
-          <label>Curso*
-            <select name="camper2_course">
-              <option value="">Selecciona…</option>
-              <option>4º Primaria</option>
-              <option>5º Primaria</option>
-              <option>6º Primaria</option>
-              <option>1º ESO</option>
-              <option>2º ESO</option>
-              <option>3º ESO</option>
-            </select>
-          </label>
-        </div>
       </section>
 
-      <!-- PROTECCIÓN DE DATOS -->
+      <!-- DATOS 2º HERMANO (tarjeta separada) -->
+      <section class="card" id="siblingCard" style="display:none;">
+        <h2>Datos del segundo hermano/a</h2>
+
+        <label>Nombre* <input name="camper2_name"></label>
+        <label>Apellidos* <input name="camper2_surname"></label>
+
+        <label>Curso*
+          <select name="camper2_course">
+            <option value="">Selecciona…</option>
+            <option>4º Primaria</option>
+            <option>5º Primaria</option>
+            <option>6º Primaria</option>
+            <option>1º ESO</option>
+            <option>2º ESO</option>
+            <option>3º ESO</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- INFO MÉDICA 2º HERMANO (tarjeta separada) -->
+      <section class="card" id="siblingMedicalCard" style="display:none;">
+        <h2>Información médica del segundo acampado</h2>
+
+        <fieldset>
+          <legend>Alergias / intolerancias (segundo acampado)*</legend>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Cereales"> Cereales</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Frutos secos"> Frutos secos</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Gluten"> Gluten</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Histamina"> Histamina</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Huevo"> Huevo</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Lactosa"> Lactosa</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Legumbres"> Legumbres</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Marisco / Pescado"> Marisco / Pescado</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="Polen"> Polen</label>
+          <label class="inline"><input type="checkbox" name="allergies2" value="NINGUNA"> NINGUNA</label>
+        </fieldset>
+
+        <label>Otras enfermedades o información médica relevante (segundo acampado)*
+          <textarea name="medical2_notes"></textarea>
+        </label>
+      </section>
+
+      <!-- PROTECCIÓN DE DATOS (TEXTO ÍNTEGRO) -->
       <section class="card">
         <h2>Información básica de Protección de Datos</h2>
 
-        <p><strong>Responsable del tratamiento:</strong><br>
-        Provincia Nuestra Señora del Pilar de la Congregación de Hermanas de la Caridad de Santa Ana (Pronvincia NSP).</p>
+        <div class="legal">
+          <p><strong>Responsable del tratamiento:</strong></p>
+          <p>Provincia Nuestra Señora del Pilar de la Congregación de Hermanas de la Caridad de Santa Ana, a partir de ahora, Pronvincia NSP (CIF: R5001005G, C/ Santa Catalina, nº8, 50001, Zaragoza, correo electrónico ambitos@gmail.com y MSACampamento@gmail.com).</p>
 
-        <p><strong>Finalidad:</strong> Gestionar la participación de los alumnos en el Campamento MSA.</p>
+          <p><strong>Finalidad:</strong></p>
+          <p>Gestionar la participación de los alumnos en las actividades del Campamento de Verano MSA, a partir de ahora Campamento MSA, incluyendo la organización, desarrollo y control de dichas actividades, así como la comunicación con las familias. Los datos médicos serán tratados únicamente para garantizar la seguridad y bienestar del participante. Además, gestionar el consentimiento para el uso de imágenes y vídeos en el ámbito interno y, en su caso, para la difusión en redes sociales o medios de comunicación.</p>
+
+          <p><strong>Legitimación:</strong></p>
+          <p>La base legal para el tratamiento es el mantenimiento de relación contractual, consentimiento expreso de los padres, madres o tutores legales del menor, y el cumplimiento de las obligaciones legales. El tratamiento de los datos de salud (alergias e intolerancias) está legitimado por ser necesario para proteger intereses vitales del participante.</p>
+
+          <p><strong>Destinatarios:</strong></p>
+          <p>No se cederán datos a terceros, salvo obligación legal (por ejemplo, centros sanitarios en caso de urgencia médica) o consentimiento expreso para la difusión de imágenes en medios o redes sociales.</p>
+
+          <p><strong>Derechos:</strong></p>
+          <p>Tienes derecho a acceder, rectificar y suprimir los datos, así como otros derechos como la limitación del tratamiento y la portabilidad de los datos. Para ejercerlos, puedes contactar al responsable en la dirección o correo electrónico indicados.</p>
+
+          <p><strong>Conservación:</strong></p>
+          <p>Los datos se conservarán mientras dure la relación con el Campamento de Verano MSA y durante los plazos legalmente exigidos. Las imágenes y vídeos publicados con consentimiento se mantendrán hasta que se revoque dicho consentimiento.</p>
+
+          <p><strong>Medidas de seguridad:</strong></p>
+          <p>La Provincia NSP ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad y confidencialidad de los datos personales tratados.</p>
+        </div>
 
         <fieldset>
-          <legend>Consentimientos*</legend>
-          <label class="inline"><input type="radio" name="consent_internal_media" value="yes" required> Uso interno de imágenes</label>
-          <label class="inline"><input type="radio" name="consent_internal_media" value="no"> No autorizo</label>
+          <legend>Tratamiento de imágenes y vídeos en el ámbito interno del Campamento MSA*</legend>
+          <label class="inline"><input type="radio" name="consent_internal_media" value="yes" required> Sí, autorizo el uso interno de imágenes y vídeos.</label>
+          <label class="inline"><input type="radio" name="consent_internal_media" value="no" required> No, no autorizo el uso interno de imágenes y vídeos.</label>
+        </fieldset>
 
-          <label class="inline"><input type="radio" name="consent_public_media" value="yes" required> Difusión pública</label>
-          <label class="inline"><input type="radio" name="consent_public_media" value="no"> No autorizo</label>
+        <fieldset>
+          <legend>Difusión de imágenes y vídeos en redes sociales, web o medios de comunicación*</legend>
+          <label class="inline"><input type="radio" name="consent_public_media" value="yes" required> Sí, autorizo la publicación en redes sociales o medios.</label>
+          <label class="inline"><input type="radio" name="consent_public_media" value="no" required> No, no autorizo la publicación en redes sociales o medios.</label>
+        </fieldset>
 
-          <label class="inline"><input type="radio" name="consent_health" value="yes" required> Datos de salud (obligatorio)</label>
+        <fieldset>
+          <legend>Tratamiento de datos de salud y cesión a cetros sanitarios en caso de urgencia*</legend>
+          <label class="inline"><input type="radio" name="consent_health" value="yes" required> Sí, autorizo. (Obligatorio para poder participar en la actividad)</label>
+          <label class="inline"><input type="radio" name="consent_health" value="no" required> No, no autorizo.</label>
+        </fieldset>
 
-          <label class="inline"><input type="radio" name="consent_privacy_read" value="yes" required> He leído la información</label>
+        <fieldset>
+          <legend>Confirmación de que se ha leído y comprendido esta información*</legend>
+          <label class="inline"><input type="radio" name="consent_privacy_read" value="yes" required> Sí, he leído y comprendo la información básica sobre protección de datos.</label>
         </fieldset>
       </section>
 
-      <!-- AVISOS IMPORTANTES -->
+      <!-- AVISOS IMPORTANTES (TEXTO ÍNTEGRO) -->
       <section class="card">
-        <h2>Avisos importantes</h2>
+        <h2>AVISOS IMPORTANTES</h2>
 
-        <p>🏥 El Campamento MSA no se hace responsable de información médico-sanitaria no indicada.</p>
-        <p>🚫 Prohibida la tenencia y consumo de sustancias.</p>
-        <p>📵 Prohibido el uso de dispositivos electrónicos.</p>
-        <p>🎯 Plazas limitadas.</p>
+        <div class="legal">
+          <p>🏥 Información médica:<br>
+          El Campamento MSA no se hace responsable de información médico-sanitaria no indicada en esta autorización.<br>
+          Solo se atenderán alergias o intolerancias diagnosticadas y comunicadas.<br>
+          No se aceptarán preferencias personales (vegano, vegetariano, etc.) ni “nuevas alergias” surgidas durante las comidas menos populares.<br>
+          Se respetarán únicamente las restricciones alimentarias religiosas indicadas previamente.<br>
+          Existe una ración mínima obligatoria. Ante alergias comunicadas, se ofrecerán alternativas seguras.</p>
+
+          <p>🌦️ Cambios por causas externas:<br>
+          Las actividades pueden modificarse debido a condiciones climáticas u otras causas medioambientales.</p>
+
+          <p>🚫 Sustancias prohibidas:<br>
+          Prohibida la tenencia y consumo de: bebidas energéticas, alcohol, tabaco y otras sustancias psicoactivas.<br>
+          El incumplimiento supondrá la expulsión de la actividad.</p>
+
+          <p>📵 Dispositivos electrónicos:<br>
+          Prohibida la tenencia y el uso de: móviles, smartwatches o dispositivos con llamadas o internet.<br>
+          Si se usan, serán retirados y devueltos al finalizar la actividad. No nos hacemos responsables de pérdidas o daños.</p>
+
+          <p>💳 Devolución de pagos:<br>
+          El pago del Campamento MSA no es reembolsable, salvo causa de fuerza mayor justificada.<br>
+          En caso de cancelación del Campamento MSA por motivos de fuerza mayor, el pago será reembolsado total o parcialmente, dependiendo de la fecha de cancelación.</p>
+
+          <p>🎯 Plazas limitadas:<br>
+          La actividad tienen un cupo limitado y pueden requerir selección según disponibilidad.</p>
+
+          <p>🚨 Traslado en caso de expulsión:<br>
+          En caso de expulsión, la familia deberá hacerse cargo del traslado inmediato del acampado/a, ya sea recogiéndolo personalmente o asumiendo el coste del transporte necesario.</p>
+        </div>
 
         <fieldset>
-          <legend>Aceptación*</legend>
-          <label class="inline"><input type="radio" name="consent_rules" value="yes" required> Acepto la normativa</label>
-          <label class="inline"><input type="radio" name="consent_rules" value="no"> No acepto</label>
+          <legend>Confirmación de que se ha leído y comprendido esta información*</legend>
+          <label class="inline"><input type="radio" name="consent_rules" value="yes" required> Sí, he leído, comprendo y acepto la normativa de la actividad</label>
+          <label class="inline"><input type="radio" name="consent_rules" value="no" required> No, no acepto la normativa</label>
         </fieldset>
       </section>
 
