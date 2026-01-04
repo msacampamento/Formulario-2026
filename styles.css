@@ -49,3 +49,7 @@ fieldset input[type="radio"]{
   margin:12px 0 16px;
 }
 .intro p{margin:10px 0;line-height:1.35}
+
+form{
+  line-height:1.35;
+}
