@@ -107,7 +107,7 @@ export async function handler(event) {
     allergies: kid.allergies,
     medical_notes: kid.medical_notes.trim(),
 
-    special_notes: payload.special_notes?.trim() || null,
+    special_notes: kid.special_notes?.trim() || null,
 
     consent_internal_media: payload.consent_internal_media,
     consent_public_media: payload.consent_public_media,
