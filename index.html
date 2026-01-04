@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reserva de plaza – CAMPA MSA 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>RESERVA DE PLAZA – CAMPA MSA 2026</h1>
+    <p class="note">Esta es únicamente la reserva de plaza.</p>
+
+    <form id="f">
+      <h2>Datos de contacto</h2>
+      <label>Correo* <input name="email" type="email" required></label>
+      <label>Nombre y apellidos (madre/padre/tutor)* <input name="parent_name" required></label>
+      <label>Teléfonos* <input name="phones" required></label>
+      <label>Otro contacto <input name="other_contact"></label>
+
+      <h2>Datos del acampado</h2>
+      <label>Nombre* <input name="camper_name" required></label>
+      <label>Apellidos* <input name="camper_surname" required></label>
+
+      <label>Curso* 
+        <select name="course" required>
+          <option value="">Selecciona…</option>
+          <option>4º Primaria</option>
+          <option>5º Primaria</option>
+          <option>6º Primaria</option>
+          <option>1º ESO</option>
+          <option>2º ESO</option>
+          <option>3º ESO</option>
+        </select>
+      </label>
+
+      <label>Procedencia* 
+        <select name="origin" required>
+          <option value="">Selecciona…</option>
+          <option>Alagon</option>
+          <option>Borja</option>
+          <option>Canal</option>
+          <option>Guadalajara</option>
+          <option>Villacruz</option>
+          <option>FSA</option>
+        </select>
+      </label>
+
+      <h2>Información médica</h2>
+      <fieldset>
+        <legend>Alergias / intolerancias*</legend>
+        <label><input type="checkbox" name="allergies" value="Cereales"> Cereales</label>
+        <label><input type="checkbox" name="allergies" value="Frutos secos"> Frutos secos</label>
+        <label><input type="checkbox" name="allergies" value="Gluten"> Gluten</label>
+        <label><input type="checkbox" name="allergies" value="Histamina"> Histamina</label>
+        <label><input type="checkbox" name="allergies" value="Huevo"> Huevo</label>
+        <label><input type="checkbox" name="allergies" value="Lactosa"> Lactosa</label>
+        <label><input type="checkbox" name="allergies" value="Legumbres"> Legumbres</label>
+        <label><input type="checkbox" name="allergies" value="Marisco / Pescado"> Marisco / Pescado</label>
+        <label><input type="checkbox" name="allergies" value="Polen"> Polen</label>
+        <label><input type="checkbox" name="allergies" value="NINGUNA"> NINGUNA</label>
+      </fieldset>
+
+      <label>Otras enfermedades o información médica relevante* 
+        <textarea name="medical_notes" required></textarea>
+      </label>
+
+      <label>¿Nos dejamos algo? (opcional)
+        <textarea name="special_notes" placeholder="Cuéntanos cualquier detalle que debamos saber (opcional)"></textarea>
+      </label>
+
+      <h2>Inscripción de hermanos</h2>
+      <label>¿Apuntar un segundo hermano/a?*
+        <select name="has_sibling" required>
+          <option value="">Selecciona…</option>
+          <option value="no">No</option>
+          <option value="yes">Sí</option>
+        </select>
+      </label>
+
+      <div id="siblingBlock" style="display:none;">
+        <h3>Datos del segundo hermano/a</h3>
+
+        <label>Nombre* <input name="camper2_name"></label>
+        <label>Apellidos* <input name="camper2_surname"></label>
+
+        <label>Curso* 
+          <select name="camper2_course">
+            <option value="">Selecciona…</option>
+            <option>4º Primaria</option>
+            <option>5º Primaria</option>
+            <option>6º Primaria</option>
+            <option>1º ESO</option>
+            <option>2º ESO</option>
+            <option>3º ESO</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Alergias / intolerancias (segundo acampado)*</legend>
+          <label><input type="checkbox" name="allergies2" value="Cereales"> Cereales</label>
+          <label><input type="checkbox" name="allergies2" value="Frutos secos"> Frutos secos</label>
+          <label><input type="checkbox" name="allergies2" value="Gluten"> Gluten</label>
+          <label><input type="checkbox" name="allergies2" value="Histamina"> Histamina</label>
+          <label><input type="checkbox" name="allergies2" value="Huevo"> Huevo</label>
+          <label><input type="checkbox" name="allergies2" value="Lactosa"> Lactosa</label>
+          <label><input type="checkbox" name="allergies2" value="Legumbres"> Legumbres</label>
+          <label><input type="checkbox" name="allergies2" value="Marisco / Pescado"> Marisco / Pescado</label>
+          <label><input type="checkbox" name="allergies2" value="Polen"> Polen</label>
+          <label><input type="checkbox" name="allergies2" value="NINGUNA"> NINGUNA</label>
+        </fieldset>
+
+        <label>Otras enfermedades o información médica relevante (segundo acampado)* 
+          <textarea name="medical2_notes"></textarea>
+        </label>
+      </div>
+
+      <h2>Confirmaciones</h2>
+      <label><input type="checkbox" name="consent_internal_media" required> Uso interno de imágenes y vídeos*</label>
+      <label><input type="checkbox" name="consent_public_media" required> Difusión en redes/web/medios*</label>
+      <label><input type="checkbox" name="consent_health" required> Datos de salud y cesión a centros sanitarios*</label>
+      <label><input type="checkbox" name="consent_privacy_read" required> He leído la info de protección de datos*</label>
+      <label><input type="checkbox" name="consent_rules" required> Acepto la normativa*</label>
+
+      <button type="submit">Enviar reserva</button>
+      <p id="msg"></p>
+    </form>
+  </main>
+
+  <script src="form.js"></script>
+</body>
+</html>

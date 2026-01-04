@@ -1,0 +1,7 @@
+{
+  "name": "formulario-2026",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0"
+  }
+}
