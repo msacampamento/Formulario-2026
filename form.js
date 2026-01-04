@@ -83,11 +83,12 @@ form.addEventListener("submit", async (e) => {
     special_notes: (fd.get("special_notes") || "").trim() || null,
 
     // Consentimientos (checkbox: si existe en FormData es true)
-    consent_internal_media: !!fd.get("consent_internal_media"),
-    consent_public_media: !!fd.get("consent_public_media"),
-    consent_health: !!fd.get("consent_health"),
-    consent_privacy_read: !!fd.get("consent_privacy_read"),
-    consent_rules: !!fd.get("consent_rules"),
+    consent_internal_media: fd.get("consent_internal_media") === "yes",
+    consent_public_media: fd.get("consent_public_media") === "yes",
+    consent_health: fd.get("consent_health") === "yes",
+    consent_privacy_read: fd.get("consent_privacy_read") === "yes",
+    consent_rules: fd.get("consent_rules") === "yes",
+
 
     // Niños
     kids,
