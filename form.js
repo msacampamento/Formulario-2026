@@ -44,6 +44,7 @@ form.addEventListener("submit", async (e) => {
     course: fd.get("course"),
     allergies: getAllergies(fd, "allergies"),
     medical_notes: (fd.get("medical_notes") || "").trim(),
+    special_notes: (fd.get("special_notes") || "").trim() || null,
   };
 
   const kids = [kid1];
@@ -55,6 +56,7 @@ form.addEventListener("submit", async (e) => {
       course: fd.get("camper2_course"),
       allergies: getAllergies(fd, "allergies2"),
       medical_notes: (fd.get("medical2_notes") || "").trim(),
+      special_notes: (fd.get("special2_notes") || "").trim() || null,
     };
     kids.push(kid2);
   }
@@ -78,9 +80,6 @@ form.addEventListener("submit", async (e) => {
 
     // Procedencia real
     origin: fd.get("origin"),
-
-    // Nota opcional
-    special_notes: (fd.get("special_notes") || "").trim() || null,
 
     // Consentimientos (checkbox: si existe en FormData es true)
     consent_internal_media: fd.get("consent_internal_media") === "yes",
