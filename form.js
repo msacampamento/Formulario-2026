@@ -14,15 +14,26 @@ function showMessage(text) {
 function toggleSiblingBlock(show) {
   siblingBlock.style.display = show ? "block" : "none";
 
-  // Activar/desactivar required de los campos del hermano
-  const req = siblingBlock.querySelectorAll("input, select, textarea");
-  req.forEach((el) => {
-    // Solo marcamos required a lo necesario (nombre, apellidos, curso, medical2)
+  const fields = siblingBlock.querySelectorAll("input, select, textarea");
+
+  fields.forEach((el) => {
     if (["camper2_name", "camper2_surname"].includes(el.name)) el.required = show;
     if (el.name === "camper2_course") el.required = show;
     if (el.name === "medical2_notes") el.required = show;
   });
+
+  // 🔽 AÑADIR SOLO ESTO
+  if (!show) {
+    fields.forEach((el) => {
+      if (el.type === "checkbox" || el.type === "radio") {
+        el.checked = false;
+      } else {
+        el.value = "";
+      }
+    });
+  }
 }
+
 
 form.addEventListener("change", (e) => {
   if (e.target.name === "has_sibling") {
