@@ -40,3 +40,12 @@ fieldset input[type="radio"]{
   color:#666;
   margin:24px 0 8px;
 }
+
+.intro{
+  background:#fff;
+  border:1px solid #d7dbe7;
+  border-radius:12px;
+  padding:12px;
+  margin:12px 0 16px;
+}
+.intro p{margin:10px 0;line-height:1.35}
