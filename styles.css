@@ -53,3 +53,15 @@ fieldset input[type="radio"]{
 form{
   line-height:1.35;
 }
+
+.card{
+  background:#fff;
+  border:1px solid #d7dbe7;
+  border-radius:12px;
+  padding:16px;
+  margin:12px 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.card h2{
+  margin-top:0;
+}
