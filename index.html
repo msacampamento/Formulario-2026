@@ -36,6 +36,8 @@
           <li><span id="successEmail"></span></li>
           <li><span id="successOrigin"></span></li>
           <li><span id="successStatus"></span></li>
+          <li><span id="successMedical1"></span></li>
+          <li><span id="successMedical2"></span></li>
         </ul>
       </div>
 
@@ -102,6 +104,16 @@
           <label class="inline"><input type="checkbox" name="allergies" value="Legumbres"> Legumbres</label>
           <label class="inline"><input type="checkbox" name="allergies" value="Marisco / Pescado"> Marisco / Pescado</label>
           <label class="inline"><input type="checkbox" name="allergies" value="Polen"> Polen</label>
+          <label class="inline">
+            <input type="checkbox" name="allergies" value="OTROS" id="allergy_other_check">
+            Otros:
+            <input
+              type="text"
+              name="allergy_other_text"
+              placeholder="Especifica la alergia"
+              style="margin-left:8px; max-width:260px;"
+            >
+          </label>
           <label class="inline"><input type="checkbox" name="allergies" value="NINGUNA"> NINGUNA</label>
         </fieldset>
 
@@ -165,6 +177,16 @@
             <label class="inline"><input type="checkbox" name="allergies2" value="Legumbres"> Legumbres</label>
             <label class="inline"><input type="checkbox" name="allergies2" value="Marisco / Pescado"> Marisco / Pescado</label>
             <label class="inline"><input type="checkbox" name="allergies2" value="Polen"> Polen</label>
+            <label class="inline">
+              <input type="checkbox" name="allergies2" value="OTROS" id="allergy2_other_check">
+              Otros:
+              <input
+                type="text"
+                name="allergy2_other_text"
+                placeholder="Especifica la alergia"
+                style="margin-left:8px; max-width:260px;"
+              >
+            </label>
             <label class="inline"><input type="checkbox" name="allergies2" value="NINGUNA"> NINGUNA</label>
           </fieldset>
 
