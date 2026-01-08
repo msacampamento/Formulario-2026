@@ -8,7 +8,8 @@ const successTitle = document.getElementById("successTitle");
 const successText = document.getElementById("successText");
 const successEmail = document.getElementById("successEmail");
 const successOrigin = document.getElementById("successOrigin");
-const successKids = document.getElementById("successKids");
+const successStatus = document.getElementById("successStatus");
+
 const newReservationBtn = document.getElementById("newReservationBtn");
 
 // ✅ Botón submit (para evitar doble click)
@@ -32,7 +33,7 @@ function setSubmitting(isSubmitting) {
   submitBtn.textContent = isSubmitting ? "Enviando…" : "Enviar reserva";
 }
 
-function showSuccessViewData({ title, text, email, origin, kidsCount }) {
+function showSuccessViewData({ title, text, email, origin, status }) {
   // Oculta formulario y mensaje inferior
   form.style.display = "none";
   msg.style.display = "none";
@@ -43,8 +44,10 @@ function showSuccessViewData({ title, text, email, origin, kidsCount }) {
 
   successEmail.textContent = `Correo: ${email || "-"}`;
   successOrigin.textContent = `Procedencia: ${origin || "-"}`;
-  successKids.textContent = `Acampados: ${kidsCount || 0}`;
-
+  successStatus.textContent =
+    status === "reserved"
+      ? "Plaza: Con plaza"
+      : "Plaza: Lista de espera";
   successView.style.display = "block";
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -193,7 +196,7 @@ form.addEventListener("submit", async (e) => {
       text: result.message || "Reserva enviada correctamente.",
       email: payload.email,
       origin: payload.origin,
-      kidsCount,
+      status: result.status,
     });
 
     // Nota: no reactivamos inFlight aquí porque el formulario se oculta.
