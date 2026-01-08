@@ -8,7 +8,7 @@
 </head>
 <body>
   <main class="container">
-    <h1>RESERVA DE PLAZA – CAMPA MSA 2026</h1>
+    <h1>RESERVA DE PLAZA<br>Campamento MSA 2026</h1>
 
     <!-- BLOQUE INFORMATIVO (tarjeta) -->
     <section class="card">
@@ -37,7 +37,8 @@
           <li><span id="successOrigin"></span></li>
           <li><span id="successStatus"></span></li>
           <li><span id="successMedical1"></span></li>
-          <li><span id="successMedical2"></span></li>
+          <!-- ✅ cambio mínimo: id en el li para ocultarlo si no hay 2º hermano -->
+          <li id="successMedical2Item"><span id="successMedical2"></span></li>
         </ul>
       </div>
 
@@ -193,7 +194,7 @@
           <label>Otras enfermedades o información médica relevante (segundo/a hermano/a)*
             <textarea name="medical2_notes"></textarea>
           </label>
-          
+
           <label>¿Nos dejamos algo? (opcional)
             <textarea name="special2_notes" placeholder="Cuéntanos cualquier detalle que debamos saber (opcional)"></textarea>
           </label>
