@@ -128,25 +128,31 @@ form.addEventListener("change", (e) => {
 });
 
 /* -------------------------
-   AUTOCHECK "OTROS"
+   "OTROS" - enlace checkbox <-> texto
+   - escribir: marca check
+   - borrar texto: desmarca
+   - desmarcar check: borra texto
 -------------------------- */
-function autoCheckOther(textName, checkboxSelector) {
+function bindOtherPair(textName, groupName) {
   const textInput = document.querySelector(`input[name="${textName}"]`);
-  const checkbox = document.querySelector(checkboxSelector);
+  const checkbox = document.querySelector(`input[name="${groupName}"][value="OTROS"]`);
 
   if (!textInput || !checkbox) return;
 
   textInput.addEventListener("input", () => {
-    if (textInput.value.trim()) {
-      checkbox.checked = true;
-    }
+    const hasText = !!textInput.value.trim();
+    checkbox.checked = hasText;
+  });
+
+  checkbox.addEventListener("change", () => {
+    if (!checkbox.checked) textInput.value = "";
   });
 }
 
 // Niño 1
-autoCheckOther("allergy_other_text", 'input[name="allergies"][value="OTROS"]');
+bindOtherPair("allergy_other_text", "allergies");
 // Niño 2
-autoCheckOther("allergy2_other_text", 'input[name="allergies2"][value="OTROS"]');
+bindOtherPair("allergy2_other_text", "allergies2");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -161,7 +167,7 @@ form.addEventListener("submit", async (e) => {
   const fd = new FormData(form);
   const hasSibling = fd.get("has_sibling") === "yes";
 
-  // ✅ Validación extra: madre y padre obligatorios (evita casos raros de required/autofill)
+  // ✅ Validación extra: madre y padre obligatorios
   const mother = (fd.get("parent_name_mother") || "").trim();
   const father = (fd.get("parent_name_father") || "").trim();
   if (!mother || !father) {
@@ -174,6 +180,14 @@ form.addEventListener("submit", async (e) => {
   // ---------- ACAMPADO 1 ----------
   const allergies1 = getAllergies(fd, "allergies");
   const otherAllergy1 = (fd.get("allergy_other_text") || "").trim();
+
+  // ✅ Aviso: si está marcado OTROS, hay que especificar
+  if (allergies1.includes("OTROS") && !otherAllergy1) {
+    showMessage("Has marcado “Otros” en alergias, pero falta especificar cuál.");
+    setSubmitting(false);
+    inFlight = false;
+    return;
+  }
 
   // ✅ Evita duplicado: si hay texto, REEMPLAZA "OTROS" por "OTROS: texto"
   if (allergies1.includes("OTROS") && otherAllergy1) {
@@ -196,6 +210,14 @@ form.addEventListener("submit", async (e) => {
   if (hasSibling) {
     const allergies2 = getAllergies(fd, "allergies2");
     const otherAllergy2 = (fd.get("allergy2_other_text") || "").trim();
+
+    // ✅ Aviso: si está marcado OTROS, hay que especificar
+    if (allergies2.includes("OTROS") && !otherAllergy2) {
+      showMessage("Has marcado “Otros” en alergias del segundo hermano/a, pero falta especificar cuál.");
+      setSubmitting(false);
+      inFlight = false;
+      return;
+    }
 
     if (allergies2.includes("OTROS") && otherAllergy2) {
       const idx = allergies2.indexOf("OTROS");
@@ -266,7 +288,7 @@ form.addEventListener("submit", async (e) => {
       return;
     }
 
-    // ✅ Resúmenes médicos (1 línea, sin “espacios” extra)
+    // ✅ Resúmenes médicos
     const medical1Text = allergiesToText(kids[0].allergies);
     const medical2Text = kids.length === 2 ? allergiesToText(kids[1].allergies) : "";
 
