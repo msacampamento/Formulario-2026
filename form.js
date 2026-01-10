@@ -161,6 +161,16 @@ form.addEventListener("submit", async (e) => {
   const fd = new FormData(form);
   const hasSibling = fd.get("has_sibling") === "yes";
 
+  // ✅ Validación extra: madre y padre obligatorios (evita casos raros de required/autofill)
+  const mother = (fd.get("parent_name_mother") || "").trim();
+  const father = (fd.get("parent_name_father") || "").trim();
+  if (!mother || !father) {
+    showMessage("Faltan los datos de madre/padre/tutor.");
+    setSubmitting(false);
+    inFlight = false;
+    return;
+  }
+
   // ---------- ACAMPADO 1 ----------
   const allergies1 = getAllergies(fd, "allergies");
   const otherAllergy1 = (fd.get("allergy_other_text") || "").trim();
@@ -221,7 +231,8 @@ form.addEventListener("submit", async (e) => {
   const payload = {
     // Contacto
     email: (fd.get("email") || "").trim(),
-    parent_name: (fd.get("parent_name") || "").trim(),
+    parent_name_mother: mother,
+    parent_name_father: father,
     phones: (fd.get("phones") || "").trim(),
     other_contact: (fd.get("other_contact") || "").trim() || null,
 
@@ -259,9 +270,17 @@ form.addEventListener("submit", async (e) => {
     const medical1Text = allergiesToText(kids[0].allergies);
     const medical2Text = kids.length === 2 ? allergiesToText(kids[1].allergies) : "";
 
+    // ✅ ¿Lista de espera?
+    const isWaitlist = result.status === "waitlist";
+
+    // Muestra vista de éxito
     showSuccessViewData({
-      title: "✅ Reserva registrada",
-      text: "Reserva enviada correctamente.",
+      title: isWaitlist
+        ? "⏳ Inscripción en lista de espera"
+        : "✅ Reserva registrada",
+      text: isWaitlist
+        ? "El cupo está completo en el origen selecionado. Tu inscripción ha quedado registrada en la lista de espera."
+        : "Reserva enviada correctamente.",
       email: payload.email,
       origin: payload.origin,
       status: result.status,

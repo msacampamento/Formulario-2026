@@ -52,7 +52,14 @@ export async function handler(event) {
   /* -----------------------------
      DATOS DE CONTACTO OBLIGATORIOS
   ------------------------------ */
-  const requiredContact = ["email", "parent_name", "phones", "origin"];
+  const requiredContact = [
+    "email",
+    "parent_name_mother",
+    "parent_name_father",
+    "phones",
+    "origin",
+  ];
+
   for (const field of requiredContact) {
     if (!payload[field]) {
       return json(400, {
@@ -60,6 +67,17 @@ export async function handler(event) {
         userMessage: "Por favor, completa todos los datos de contacto obligatorios.",
       });
     }
+  }
+
+  // ✅ Endurecer: no permitir solo espacios en madre/padre
+  const mother = String(payload.parent_name_mother || "").trim();
+  const father = String(payload.parent_name_father || "").trim();
+
+  if (!mother || !father) {
+    return json(400, {
+      error: "Datos de tutor incompletos",
+      userMessage: "Debes indicar el nombre y apellidos de madre/tutora y padre/tutor.",
+    });
   }
 
   if (!ALLOWED_ORIGINS.includes(payload.origin)) {
@@ -188,9 +206,10 @@ export async function handler(event) {
     group_id,
     status: statusGroup,
 
-    email: payload.email.trim(),
-    parent_name: payload.parent_name.trim(),
-    phones: payload.phones.trim(),
+    email: String(payload.email || "").trim(),
+    parent_name_mother: mother,
+    parent_name_father: father,
+    phones: String(payload.phones || "").trim(),
     other_contact: payload.other_contact?.trim() || null,
 
     camper_name: kid.camper_name.trim(),
